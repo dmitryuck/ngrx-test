@@ -1,0 +1,17 @@
+<div class="todo-container">
+    <span class="done-check"
+          [ngClass]="{'done-yes': todo.done, 'done-no': !todo.done}"
+          (click)="setDone(!todo.done)"></span>
+    <span *ngIf="!editMode"
+          class="todo-name"
+          [ngClass]="{'todo-name-through': todo.done}"
+          (click)="enterEditMode()">{{todo.name}}</span>
+    <input  #inputName
+            *ngIf="editMode"
+            class="edit-input"
+            autofocus
+            (blur)="inputBlur()"
+            (keydown)="editKeyDown($event)"
+            value="{{todo.name}}"/>
+    <span class="btn-rem" (click)="deleteTodo(todo)">Delete</span>
+</div>

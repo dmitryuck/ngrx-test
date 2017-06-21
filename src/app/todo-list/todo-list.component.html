@@ -1,0 +1,5 @@
+<div class="add-todo-btn"
+     (click)="addNewTodo()">Add new todo</div>
+<div *ngFor="let todo of todos">
+  <app-todo [todo]="todo"></app-todo>
+</div>

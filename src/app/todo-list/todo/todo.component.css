@@ -1,0 +1,43 @@
+.todo-container {
+    background-color: greenyellow;
+    padding: 10px;
+    margin-top: 2px;
+}
+
+.todo-name {
+    background-color: brown;
+    min-width: 200px;
+    height: 60px;
+    font-size: 24px;
+    color: white;
+    padding: 10px;    
+}
+
+.edit-input {
+    width: 400px;    
+}
+
+.todo-name-through {
+    text-decoration: line-through;
+}
+
+.btn-rem {
+    width: 40px;
+    background-color: red;
+    cursor: pointer;
+}
+
+.done-check {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.done-yes {
+    background-color: violet;
+}
+
+.done-no {
+    background-color: dodgerblue;
+}

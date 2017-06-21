@@ -1,0 +1,8 @@
+.add-todo-btn {
+    display: inline-block;
+    width: 400px;
+    min-height: 60px;
+    font-size: 48px;
+    background-color: yellow;
+    cursor: pointer;
+}
