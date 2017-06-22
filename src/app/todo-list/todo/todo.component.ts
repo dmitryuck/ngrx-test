@@ -2,10 +2,14 @@ import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewChecked } fro
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import {
-  Todo,
-  TodosStore,
+  Todo
+} from './todo';
+import {
+  TodosState
+} from '../todo-list.reducer';
+import {
   TodosActions
-} from '../../data';
+} from '../todo-list.actions';
 
 @Component({
   selector: 'app-todo',
@@ -19,11 +23,11 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   @ViewChild('inputName')
   public inputName: ElementRef;
 
-  public storeState: Observable<TodosStore>;
+  public storeState: Observable<TodosState>;
 
   public editMode: boolean;
 
-  constructor(public store: Store<TodosStore>) {
+  constructor(public store: Store<TodosState>) {
     this.storeState = store.select(a => a);
   }
 

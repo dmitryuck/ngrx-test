@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
-  TodosStore,
-  TodosActions,
+  TodosState
+} from './todo-list.reducer';
+import {
+  TodosActions
+} from './todo-list.actions';
+import {
   Todo
-} from '../data';
+} from './todo/todo';
+import 'rxjs/add/operator/map'
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -14,17 +19,15 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TodoListComponent implements OnInit {
 
-  public todos: Todo[];
-  public storeState: Observable<TodosStore>;
+  public todos: Observable<Todo[]>;
+  public storeState: Observable<TodosState>;
 
-  constructor(public store: Store<TodosStore>) {
+  constructor(public store: Store<TodosState>) {
       this.storeState = store.select((a) => a);
   }
 
   ngOnInit() {
-      this.storeState.subscribe((state: TodosStore) => {
-        this.todos = state.todos;
-      });
+      this.todos = this.storeState.map(state => state.todos);
   }
 
   public addNewTodo(): void {
