@@ -1,15 +1,8 @@
 import { Action } from '@ngrx/store';
 
-import { Todo } from './todo';
+import { Todo } from './todo/todo';
 
 export class TodosActions {
-    public static UPDATE_STATE: string = 'UPDATE_STATE';
-    static updateState(): Action {
-        return {
-            type: TodosActions.UPDATE_STATE
-        };
-    }
-
     public static ADD_TODO: string = 'ADD_TODO';
     static addTodo(todo: Todo): Action {
         return {

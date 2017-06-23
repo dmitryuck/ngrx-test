@@ -1,10 +1,4 @@
-export interface TodoInterface {
-    id: string;
-    name: string;
-    done: boolean;
-}
-
-export class Todo implements TodoInterface {
+export class Todo {
     public id: string;
     public name: string;
     public done: boolean;

@@ -14,7 +14,7 @@ import {
 
 import {
   todosReducer
-} from './data';
+} from './todo-list/todo-list.reducer';
 
 @NgModule({
   declarations: [
