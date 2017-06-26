@@ -1,15 +1,9 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import {
-  Todo
-} from './todo';
-import {
-  TodosState
-} from '../todo-list.reducer';
-import {
-  TodosActions
-} from '../todo-list.actions';
+import { Todo } from './todo';
+import { TodosState } from '../todo-list.reducer';
+import { TodosActions } from '../todo-list.actions';
 
 @Component({
   selector: 'app-todo',
@@ -42,7 +36,7 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   }
 
   public deleteTodo(todo: Todo): void {
-    this.store.dispatch(TodosActions.remTodo(todo));
+    this.store.dispatch(TodosActions.removeTodo(todo));
   }
 
   public setDone(done: boolean): void {

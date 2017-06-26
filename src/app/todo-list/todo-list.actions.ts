@@ -1,7 +1,10 @@
+import { Injectable } from '@angular/core';
+
 import { Action } from '@ngrx/store';
 
 import { Todo } from './todo/todo';
 
+@Injectable()
 export class TodosActions {
     public static ADD_TODO: string = 'ADD_TODO';
     static addTodo(todo: Todo): Action {
@@ -11,10 +14,10 @@ export class TodosActions {
         };
     }
 
-    public static REM_TODO: string = 'REM_TODO';
-    static remTodo(todo: Todo): Action {
+    public static REMOVE_TODO: string = 'REMOVE_TODO';
+    static removeTodo(todo: Todo): Action {
         return {
-            type: TodosActions.REM_TODO,
+            type: TodosActions.REMOVE_TODO,
             payload: todo
         };
     }
@@ -33,5 +36,20 @@ export class TodosActions {
             type: TodosActions.SET_NAME,
             payload: {todo: todo, name: name}
         }
+    }
+
+    public static FETCH_TODOS: string = 'FETCH_TODOS';
+    static fetchTodos(): Action {
+        return {
+            type: TodosActions.FETCH_TODOS
+        };
+    }
+
+    public static FETCH_TODOS_SUCCESS: string = 'FETCH_TODOS_SUCCESS';
+    fetchTodosSuccess(data: any): Action {
+        return {
+            type: TodosActions.FETCH_TODOS_SUCCESS,
+            payload: data
+        };
     }
  }
