@@ -37,7 +37,7 @@ export function todosReducer(state: TodosState = defaultState, action: Action): 
         }
 
         case TodosActions.FETCH_TODOS_SUCCESS: {
-            return Object.assign({}, state, {todos: [... state.todos, action.payload]});
+            return Object.assign({}, state, {todos: [... state.todos, ... action.payload]});
         }
 
         default:

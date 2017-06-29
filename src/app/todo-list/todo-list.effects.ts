@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
-import { Effect, Actions } from "@ngrx/effects";
+import { Effect, Actions, toPayload } from "@ngrx/effects";
 import { TodosActions } from './todo-list.actions';
 import { TodoService } from './todo-list.service';
 
@@ -14,7 +14,7 @@ export class TodosEffects {
     @Effect()
     fetchTodos$ = this.action$
         .ofType(TodosActions.FETCH_TODOS)
-        .map((action: Action) => action.payload)
+        .map(toPayload)
         .switchMap((query) => this.todoService.fetchTodos()
             .map((data: any) => this.todosActions.fetchTodosSuccess(data.data))
         );

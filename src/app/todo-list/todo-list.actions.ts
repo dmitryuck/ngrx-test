@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-
 import { Action } from '@ngrx/store';
-
 import { Todo } from './todo/todo';
 
 @Injectable()
@@ -46,7 +44,7 @@ export class TodosActions {
     }
 
     public static FETCH_TODOS_SUCCESS: string = 'FETCH_TODOS_SUCCESS';
-    fetchTodosSuccess(data: any): Action {
+    fetchTodosSuccess(data: Todo): Action {
         return {
             type: TodosActions.FETCH_TODOS_SUCCESS,
             payload: data

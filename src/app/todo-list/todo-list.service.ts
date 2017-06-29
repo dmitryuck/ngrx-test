@@ -8,7 +8,7 @@ import { Todo } from './todo/todo';
 export class TodoService {
   public constructor() {}
 
-  public fetchTodos(): Observable<any> {
-    return  Observable.timer(1000).mapTo({data: new Todo('Todo from EFFECT')});
+  public fetchTodos(): Observable<{data: Todo[]}> {
+    return  Observable.timer(1000).mapTo({data: [new Todo('Todo from EFFECT 1'), new Todo('Todo from EFFECT 2'), new Todo('Todo from EFFECT 3')]});
   }
 }
