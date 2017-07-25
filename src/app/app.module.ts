@@ -4,6 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { TodosActions } from './todo-list/todo-list.actions';
+import { TodosEffects } from './todo-list/todo-list.effects';
+import { TodoService } from './todo-list/todo-list.service';
 
 import { AppComponent } from './app.component';
 
@@ -26,9 +31,13 @@ import {
     BrowserModule,
     FormsModule,
     HttpModule,
+    EffectsModule.run(TodosEffects),
     StoreModule.provideStore(todosReducer)
   ],
-  providers: [],
+  providers: [
+    TodosActions,
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
-<div class="add-todo-btn"
+<div class="big-yellow-button"
      (click)="addNewTodo()">Add new todo</div>
+<div class="big-yellow-button"
+     (click)="fetchTodos()">Fetch todos</div>
 <div *ngFor="let todo of todos | async">
   <app-todo [todo]="todo"></app-todo>
 </div>
